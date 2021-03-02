@@ -11,11 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
+import java.util.Locale;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder>{
+
 
     Context context;
     List<Tweet> tweets;
@@ -40,7 +43,6 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         Tweet tweet = tweets.get(position);
         // Bind tweet with view holder
         holder.bind(tweet);
-
     }
 
     @Override
@@ -64,18 +66,31 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         ImageView ivProfileImage;
         TextView  tvBody;
         TextView  tvScreenName;
+        TextView tvTimestamp;
+        TextView tvUserName;
+        ImageView ivMedia;
+        TextView tvFav;
+        TextView tvRetweet;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvBody = itemView.findViewById(R.id.tvBody);
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
+            tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
+            tvUserName = itemView.findViewById(R.id.tvUserName);
+            ivMedia = itemView.findViewById(R.id.ivMedia);
+            tvFav = itemView.findViewById(R.id.tvFav);
+            tvRetweet = itemView.findViewById(R.id.tvRetweets);
         }
-
         public void bind(Tweet tweet) {
+            tvRetweet.setText(String.format(Locale.getDefault(), "%d", tweet.reTweets));
+            tvFav.setText(String.format(Locale.getDefault(), "%d", tweet.Liked));
             tvBody.setText(tweet.body);
-            tvScreenName.setText(tweet.user.screenName);
-            Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+            tvScreenName.setText(tweet.user.name);
+            tvUserName.setText(String.format(Locale.getDefault(), "@%s", tweet.user.screenName));
+            tvTimestamp.setText(TimeFormatter.getTimeDifference(tweet.createAt));
+            Glide.with(context).load(tweet.user.profileImageUrl).transform(new CircleCrop()).into(ivProfileImage);
         }
     }
 
