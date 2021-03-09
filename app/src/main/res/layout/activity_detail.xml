@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/twitter_blue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/tvInReplyTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Replying to @Spikeballwong"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:transitionName="inReplyTo"
+                app:layout_constraintStart_toStartOf="@+id/tvBody"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfileImage" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Retweets"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/tvRetweet"
+                app:layout_constraintTop_toTopOf="@+id/tvRetweet" />
+
+            <TextView
+                android:id="@+id/tvFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="34"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textView11"
+                app:layout_constraintTop_toTopOf="@+id/tvRetweet" />
+
+            <ImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:transitionName="profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRetweeted"
+                 />
+
+            <TextView
+                android:id="@+id/tvScreenName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="16sp"
+                android:transitionName="screenName"
+                app:layout_constraintStart_toStartOf="@+id/tvUserName"
+                app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+                tools:text="apple" />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:transitionName="userName"
+                app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+                app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
+                tools:text="Apple" />
+
+            <TextView
+                android:id="@+id/tvBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="#FFFFFF"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:transitionName="body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ivProfileImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvInReplyTo" />
+
+            <ImageView
+                android:id="@+id/ivMedia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:transitionName="media"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/tvBody"
+                app:layout_constraintStart_toStartOf="@+id/tvBody"
+                app:layout_constraintTop_toBottomOf="@+id/tvBody"
+            />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="24dp"
+
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBody"
+                app:layout_constraintTop_toBottomOf="@+id/ivMedia" />
+
+            <ImageView
+                android:id="@+id/border1"
+                android:layout_width="0dp"
+                android:layout_height=".75dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBody"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvBody"
+                app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+
+            <ImageView
+                android:id="@+id/border2"
+                android:layout_width="0dp"
+                android:layout_height=".75dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBody"
+                app:layout_constraintStart_toStartOf="@+id/tvBody"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                />
+
+            <TextView
+                android:id="@+id/tvRetweet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="29"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tvTime"
+                app:layout_constraintTop_toBottomOf="@+id/border1" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Likes"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/tvFavorite"
+                app:layout_constraintTop_toTopOf="@+id/tvRetweet" />
+
+
+
+            <TextView
+                android:id="@+id/tvRetweeted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google Retweeted"
+                android:transitionName="retweetText"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/tvUserName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivRetweeted"
+                android:layout_width="14dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:transitionName="retweetImage"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRetweeted"
+                app:layout_constraintEnd_toStartOf="@+id/tvRetweeted"
+                app:layout_constraintTop_toTopOf="@+id/tvRetweeted"
+                app:srcCompat="@drawable/ic_vector_retweet" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

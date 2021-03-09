@@ -2,11 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RLtweet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:background="@drawable/background_border"
     android:foregroundTint="#11F4E1">
+
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -16,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="0dp"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -52,10 +54,10 @@
         android:id="@+id/tvTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvBody"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="1dp"
-        android:layout_toEndOf="@+id/tvUserName"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="10dp"
         android:textColor="#000000"
         android:textSize="14dp"
         tools:text="12h" />
@@ -72,32 +74,18 @@
         android:textStyle="italic"
         tools:text="\@hot_dog" />
 
-    <ImageView
-        android:id="@+id/ivMedia"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitCenter"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/tvBody"
-        app:layout_constraintStart_toStartOf="@+id/tvBody"
-        app:layout_constraintTop_toBottomOf="@+id/tvBody"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/tvRetweets"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
         android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="220dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="1dp"
-        android:textAlignment="center"
+        android:drawableLeft="@drawable/ic_vector_retweet"
+        android:drawablePadding="3dp"
+        android:textAlignment="gravity"
         android:textColor="#000000"
         tools:text="411" />
 
@@ -106,42 +94,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
-        android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@+id/tvBody"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
-        android:textAlignment="center"
+        android:drawableLeft="@drawable/ic_vector_heart"
+        android:textAlignment="gravity"
         android:textColor="#000000"
         tools:text="122" />
 
-    <ImageView
-        android:id="@+id/ivRetweet"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/tvBody"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="-220dp"
-        android:layout_toStartOf="@+id/tvRetweets"
-        app:srcCompat="@drawable/ic_vector_heart" />
-
-    <ImageView
-        android:id="@+id/ivFavorite"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/tvBody"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/tvFav"
-        app:srcCompat="@drawable/ic_vector_retweet" />
 
     <ImageView
         android:id="@+id/ivMessage"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="83dp"
-        android:layout_toStartOf="@+id/ivRetweet"
+        android:layout_marginEnd="-100dp"
+        android:layout_toStartOf="@+id/tvRetweets"
         app:srcCompat="@drawable/ic_vector_messages" />
+
 
 </RelativeLayout>
