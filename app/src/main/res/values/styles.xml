@@ -10,7 +10,13 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        <!-- specify enter and exit transitions -->
+        <!-- options are: explode, slide, fade -->
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+
     </style>
 
 </resources>

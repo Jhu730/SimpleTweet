@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -106,7 +109,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
                     Intent i =new Intent(context, DetailActivity.class);
                     //Pass data
                     i.putExtra("tweet", Parcels.wrap(tweet));
-                    context.startActivity(i);
+                    Pair<View, String> p1 = Pair.create((View) RLtweet, "tweet");
+                    //Pair<View, String> p2 = Pair.create((View) tvScreenName, "name");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,p1);
+                    context.startActivity(i, options.toBundle());
+
 
                 }
 

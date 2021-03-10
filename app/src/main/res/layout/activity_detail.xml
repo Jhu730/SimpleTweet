@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:transitionName="tweet">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -12,7 +13,6 @@
         android:background="@color/twitter_blue"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="8dp" />
 
     <ScrollView
@@ -39,8 +39,8 @@
                 android:layout_marginTop="8dp"
                 android:text="Replying to @Spikeballwong"
                 android:textSize="16sp"
-                android:visibility="gone"
                 android:transitionName="inReplyTo"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/tvBody"
                 app:layout_constraintTop_toBottomOf="@+id/ivProfileImage" />
 
@@ -74,8 +74,7 @@
                 android:layout_marginTop="8dp"
                 android:transitionName="profile"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvRetweeted"
-                 />
+                app:layout_constraintTop_toBottomOf="@+id/tvRetweeted" />
 
             <TextView
                 android:id="@+id/tvScreenName"
@@ -83,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:textSize="16sp"
-                android:transitionName="screenName"
+                android:transitionName="name"
                 app:layout_constraintStart_toStartOf="@+id/tvUserName"
                 app:layout_constraintTop_toBottomOf="@+id/tvUserName"
                 tools:text="apple" />
@@ -126,8 +125,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/tvBody"
                 app:layout_constraintStart_toStartOf="@+id/tvBody"
-                app:layout_constraintTop_toBottomOf="@+id/tvBody"
-            />
+                app:layout_constraintTop_toBottomOf="@+id/tvBody" />
 
             <TextView
                 android:id="@+id/tvTime"
@@ -157,8 +155,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="@+id/tvBody"
                 app:layout_constraintStart_toStartOf="@+id/tvBody"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <TextView
                 android:id="@+id/tvRetweet"
@@ -181,7 +178,6 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/tvFavorite"
                 app:layout_constraintTop_toTopOf="@+id/tvRetweet" />
-
 
 
             <TextView
